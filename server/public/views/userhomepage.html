@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home Page</title>
+    <script src="vendors/angular.min.js"></script>
+    <script src="assets/client.js"></script>
+</head>
+<body ng-controller="mainController">
+    <h1>User Home Page</h1>
+    <p>Customer: {{data.first_name}} {{data.last_name}}</p>
+    <p>Account Balance: {{data.account_balance | currency}}</p>
+    <p>Car Loan Balance: {{data.car_loan | currency}}</p>
+    <p>Home Loan Balance: {{data.home_loan | currency}}</p>
+
+</body>
+</html>
