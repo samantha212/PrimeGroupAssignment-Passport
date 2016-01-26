@@ -75,6 +75,7 @@ passport.use('local', new localStrategy({
             } else {
                 done(null, false, {message: 'Something is wrong.'});
             }
+            client.end();
         });
     });
 
