@@ -19,6 +19,8 @@ app.controller('userHomePageController', function($scope, $http){
 
         $http.post('/makepayment', paymentInfo).success(function(response){
             console.log('Response', response);
+            $scope.data.car_loan = response[0].car_loan;
+            $scope.data.home_loan = response[0].home_loan;
         })
     }
 });

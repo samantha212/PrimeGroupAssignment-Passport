@@ -33,7 +33,14 @@ router.post('/makepayment', function(request, response){
     pg.connect(connectionString, function(err, client, done) {
         //client.query('UPDATE user_data SET ' + loanType + ' = ' + loanType + ' - ' + paymentAmount + ' WHERE  id = ' + request.user.id);
         //client.query('UPDATE user_data SET $1 = ' + loanType + ' - ' + paymentAmount + ' WHERE  id = ' + request.user.id, [loanType]);
-        client.query('UPDATE user_data SET $1 = $2 - $3 WHERE id = $4', [loanType, loanType, paymentAmount, request.user.id]);
+        if (loanType = "car_loan") {
+            client.query('UPDATE user_data SET car_loan = car_loan - $1 WHERE id = $2', [paymentAmount, request.user.id]);
+        } else {
+            client.query('UPDATE user_data SET home_loan = home_loan - $1 WHERE id = $2', [paymentAmount, request.user.id]);
+
+        }
+
+        //client.query('UPDATE user_data SET $1 = $2 WHERE id = $3', [loanType, loanType - paymentAmount, request.user.id]);
         //client.query('UPDATE user_data SET car_loan = car_loan - 800 WHERE  id = 251');
 
 
