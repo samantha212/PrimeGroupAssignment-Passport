@@ -6,12 +6,19 @@
     <script src="vendors/angular.min.js"></script>
     <script src="assets/client.js"></script>
 </head>
-<body ng-controller="mainController">
+<body ng-controller="userHomePageController">
     <h1>User Home Page</h1>
     <p>Customer: {{data.first_name}} {{data.last_name}}</p>
     <p>Account Balance: {{data.account_balance | currency}}</p>
     <p>Car Loan Balance: {{data.car_loan | currency}}</p>
     <p>Home Loan Balance: {{data.home_loan | currency}}</p>
 
+    <select name="loantype" id="loantype" ng-model="selectedLoanType">
+        <option value="" disabled>Choose Loan Type</option>
+        <option value="car_loan" >Car Loan</option>
+        <option value="home_loan" >Home Loan</option>
+    </select>
+    $<input type="number" ng-model="selectedAmount" placeholder="enter dollar amount" min=".01">
+    <button ng-click="makePayment(selectedLoanType, selectedAmount)">Make Payment</button>
 </body>
 </html>

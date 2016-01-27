@@ -47,7 +47,7 @@ passport.deserializeUser(function(id, done){
 
         query.on('row', function(row){
             user = row;
-            console.log('User object', user);
+            //console.log('User object', user);
             done(null, user);
         });
     });
